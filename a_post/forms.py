@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Post
+from .models import Post, Comment, Reply
 
 class PostCreateForm(ModelForm):
     class Meta:
@@ -20,3 +20,28 @@ class PostCreateForm(ModelForm):
         }),
             'tags': forms.CheckboxSelectMultiple(),
     }
+        
+class CommentCreateForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['body']
+        widgets = {
+            'body': forms.TextInput(attrs={'placeholder':'Add Comment...', 'class':'w-full flex-1'})
+        }
+        labels = {
+            'body':''
+        }
+
+class ReplyCreateForm(forms.ModelForm):
+    class Meta:
+        model = Reply
+        fields = ['body']
+        widgets = {
+            'body': forms.TextInput(attrs={
+            'placeholder': 'Add Reply ...',
+            'class': 'text-sm flex-1 w-full'
+            })
+        }
+        labels = {
+            'body': '',
+        }

@@ -12,3 +12,4 @@ class ProfileForm(forms.ModelForm):
             'image': forms.FileInput(),
             'bio': forms.Textarea(attrs={'rows':3}),
         }
+

@@ -37,10 +37,7 @@ class ReplyCreateForm(forms.ModelForm):
         model = Reply
         fields = ['body']
         widgets = {
-            'body': forms.TextInput(attrs={
-            'placeholder': 'Add Reply ...',
-            'class': 'text-sm flex-1 w-full'
-            })
+            'body': forms.TextInput(attrs={'placeholder': 'Add Reply ...'})
         }
         labels = {
             'body': '',
